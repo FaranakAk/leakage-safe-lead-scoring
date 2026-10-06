@@ -1,0 +1,176 @@
+{
+  "note": "OPTIMISTIC DIAGNOSTIC ONLY. Frozen recipe (features, hyperparameters, Platt calibration) on a stratified random 70/10/20 split of all rows, so training, calibration and evaluation rows share periods. Shows how optimistic random evaluation is; not a headline result and not used to revise or select the production model.",
+  "split_sizes": {
+    "fit": 28831,
+    "calibrate": 4119,
+    "evaluate": 8238
+  },
+  "seed": 42,
+  "base_rate": 0.11264870114105366,
+  "n": 8238,
+  "models": {
+    "naive": {
+      "n": 8238,
+      "base_rate": 0.11264870114105366,
+      "mean_predicted": 0.11265651555617223,
+      "pr_auc": 0.11264870114105366,
+      "roc_auc": 0.5,
+      "brier": 0.09995897133335233,
+      "brier_at_segment_base_rate": 0.09995897127228724,
+      "top_k": [
+        {
+          "top_fraction": 0.1,
+          "n_contacted": 824,
+          "expected_conversions": 92.82252974022822,
+          "precision": 0.11264870114105366,
+          "capture_rate": 0.1000242777373149,
+          "lift": 1.0,
+          "contacts_per_conversion": 8.877155172413792
+        },
+        {
+          "top_fraction": 0.2,
+          "n_contacted": 1648,
+          "expected_conversions": 185.64505948045644,
+          "precision": 0.11264870114105366,
+          "capture_rate": 0.2000485554746298,
+          "lift": 1.0,
+          "contacts_per_conversion": 8.877155172413792
+        },
+        {
+          "top_fraction": 0.3,
+          "n_contacted": 2471,
+          "expected_conversions": 278.3549405195436,
+          "precision": 0.11264870114105367,
+          "capture_rate": 0.29995144452537026,
+          "lift": 1.0000000000000002,
+          "contacts_per_conversion": 8.877155172413792
+        }
+      ]
+    },
+    "logreg_primary": {
+      "n": 8238,
+      "base_rate": 0.11264870114105366,
+      "mean_predicted": 0.11170505012753706,
+      "pr_auc": 0.3700203394514511,
+      "roc_auc": 0.7415892259068824,
+      "brier": 0.08523165653717572,
+      "brier_at_segment_base_rate": 0.09995897127228724,
+      "top_k": [
+        {
+          "top_fraction": 0.1,
+          "n_contacted": 824,
+          "expected_conversions": 325.0,
+          "precision": 0.39441747572815533,
+          "capture_rate": 0.35021551724137934,
+          "lift": 3.5013051347505857,
+          "contacts_per_conversion": 2.5353846153846153
+        },
+        {
+          "top_fraction": 0.2,
+          "n_contacted": 1648,
+          "expected_conversions": 445.0,
+          "precision": 0.2700242718446602,
+          "capture_rate": 0.4795258620689655,
+          "lift": 2.3970473614830934,
+          "contacts_per_conversion": 3.703370786516854
+        },
+        {
+          "top_fraction": 0.3,
+          "n_contacted": 2471,
+          "expected_conversions": 558.0,
+          "precision": 0.22581950627276406,
+          "capture_rate": 0.6012931034482759,
+          "lift": 2.0046347981411965,
+          "contacts_per_conversion": 4.42831541218638
+        }
+      ]
+    },
+    "xgboost_comparison": {
+      "n": 8238,
+      "base_rate": 0.11264870114105366,
+      "mean_predicted": 0.11193384260118268,
+      "pr_auc": 0.3906905689696706,
+      "roc_auc": 0.7455920680220766,
+      "brier": 0.08400703825899727,
+      "brier_at_segment_base_rate": 0.09995897127228724,
+      "top_k": [
+        {
+          "top_fraction": 0.1,
+          "n_contacted": 824,
+          "expected_conversions": 351.0,
+          "precision": 0.42597087378640774,
+          "capture_rate": 0.37823275862068967,
+          "lift": 3.7814095455306322,
+          "contacts_per_conversion": 2.3475783475783474
+        },
+        {
+          "top_fraction": 0.2,
+          "n_contacted": 1648,
+          "expected_conversions": 460.0,
+          "precision": 0.279126213592233,
+          "capture_rate": 0.4956896551724138,
+          "lift": 2.4778467107465683,
+          "contacts_per_conversion": 3.582608695652174
+        },
+        {
+          "top_fraction": 0.3,
+          "n_contacted": 2471,
+          "expected_conversions": 569.0,
+          "precision": 0.2302711452853096,
+          "capture_rate": 0.6131465517241379,
+          "lift": 2.044152688427134,
+          "contacts_per_conversion": 4.3427065026362035
+        }
+      ]
+    }
+  },
+  "primary_calibration": {
+    "brier_before": 0.08523165653717572,
+    "brier_after": 0.08519137650481366,
+    "brier_at_segment_base_rate": 0.09995897127228724,
+    "mean_predicted_before": 0.11170505012753706,
+    "mean_predicted_after": 0.1151643435131821,
+    "actual_rate": 0.11264870114105366,
+    "ranking_unchanged_by_calibration": true
+  },
+  "bootstrap": {
+    "logreg_primary": {
+      "pr_auc": [
+        0.33743893649302253,
+        0.4033954478262791
+      ],
+      "roc_auc": [
+        0.7231180342607297,
+        0.7581903595859449
+      ]
+    },
+    "xgboost_comparison": {
+      "pr_auc": [
+        0.35807282936411794,
+        0.4249903229276428
+      ],
+      "roc_auc": [
+        0.7270227954035032,
+        0.7633704090003449
+      ]
+    },
+    "differences": {
+      "logreg_primary - xgboost_comparison": {
+        "pr_auc": [
+          -0.031128521146909803,
+          -0.00993721010062682
+        ],
+        "roc_auc": [
+          -0.009797817233362168,
+          0.0015570820413464304
+        ]
+      }
+    },
+    "settings": {
+      "repetitions": 2000,
+      "seed": 20261006,
+      "level": 0.95,
+      "caveat": "Nonparametric row bootstrap (rows resampled with replacement, same resamples for every model). Intervals describe row-level sampling uncertainty under an independence approximation. They do not capture temporal dependence, distribution drift, or repeated clients (no client ID is available)."
+    }
+  }
+}

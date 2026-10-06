@@ -1,0 +1,42 @@
+{
+  "status": "frozen before any band-level test results were computed",
+  "rule": "High = top 20% of ranking scores; Medium = next 30%; Low = remaining 50%",
+  "shares": {
+    "High": 0.2,
+    "Medium": 0.3,
+    "Low": 0.5
+  },
+  "ranking_score": "log-odds (decision function) of the uncalibrated logistic regression",
+  "reference": "ranking scores of the validation period (Apr - May 2009), 4977 leads",
+  "cutoffs": {
+    "high_min": -2.5049519755460907,
+    "medium_min": -2.721572274750752
+  },
+  "tie_rule": "score >= cutoff goes to the higher band",
+  "batch_mode": "the same 20/30/50 rule applied to the batch's own score distribution",
+  "reference_percentiles": {
+    "p0": -4.145840510419835,
+    "p5": -3.2935765293104877,
+    "p10": -3.1640674925560197,
+    "p15": -3.0906729121228587,
+    "p20": -3.0231411167933184,
+    "p25": -2.9641335778961473,
+    "p30": -2.903701236923785,
+    "p35": -2.8473667263048084,
+    "p40": -2.803684290924736,
+    "p45": -2.759524286257095,
+    "p50": -2.721572274750752,
+    "p55": -2.685320682439114,
+    "p60": -2.649090232453929,
+    "p65": -2.6155851516191566,
+    "p70": -2.582619416536702,
+    "p75": -2.545509520069129,
+    "p80": -2.5049519755460907,
+    "p85": -2.4561953853603344,
+    "p90": -2.399314650223558,
+    "p95": -2.2191754589101245,
+    "p100": -1.1552331233092072
+  },
+  "artifact": "artifacts\\models\\lead-scorer-1.0.0.joblib",
+  "artifact_sha256": "25b4d719ebc7648ad5698c17e14f5a980a2bed059ce7978b25235f96da73a670"
+}

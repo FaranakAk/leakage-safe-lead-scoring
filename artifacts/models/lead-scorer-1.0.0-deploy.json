@@ -1,0 +1,194 @@
+{
+  "version": "lead-scorer-1.0.0-deploy",
+  "band_rule": {
+    "High": 0.2,
+    "Medium": 0.3,
+    "Low": 0.5
+  },
+  "cutoffs": {
+    "high_min": -2.5049519755460907,
+    "medium_min": -2.721572274750752
+  },
+  "primary_outputs": [
+    "priority",
+    "ranking_score / historical_percentile"
+  ],
+  "secondary_outputs": [
+    "calibrated_probability_secondary"
+  ],
+  "calibration_warning": "Secondary output. The probability calibration was fitted on April-May 2009 (12.8% conversion) and, on the later test period (30.8% conversion), predicted 14.7% on average. Calibration drifts when the overall conversion rate changes; it needs recent outcome data before these probabilities can be relied on. Use the priority band and ranking percentile for decisions.",
+  "created": "2026-10-06",
+  "model": "Logistic regression (C = 1.0) on the 12 primary pre-contact features; frozen in Phase 3",
+  "ranking_score": "log-odds (decision function) of the uncalibrated logistic regression",
+  "reference_distribution": "ranking scores of the validation period (Apr - May 2009), 4977 leads",
+  "periods": {
+    "development": {
+      "first_period": "2008-05",
+      "last_period": "2009-03",
+      "n_rows": 27972
+    },
+    "validation": {
+      "first_period": "2009-04",
+      "last_period": "2009-05",
+      "n_rows": 4977
+    },
+    "test": {
+      "first_period": "2009-05",
+      "last_period": "2010-11",
+      "n_rows": 8239
+    }
+  },
+  "trained_on": "development period (May 2008 - Mar 2009)",
+  "calibrated_on": "validation period (Apr - May 2009)",
+  "calibration": {
+    "method": "Platt: logistic regression on the model's log-odds",
+    "slope": 1.2584550448535217,
+    "intercept": 1.456414277004645
+  },
+  "test_calibration_drift": "test period mean calibrated probability 14.7% vs actual 30.8% (reports/metrics.json)",
+  "shap_background": "1000 development-period rows, seed 7",
+  "frozen_spec_sha256": "7abcba16afd082b74115fb8a42cd7859a06d36cda74a18c7133749318f098215",
+  "data_sha256": "74adfc578bf77a7ff4bb1ba4a9f8709d9e3c6907342959c2c8416847e0afb4d8",
+  "library_versions": {
+    "scikit-learn": "1.9.1",
+    "xgboost": "3.4.1",
+    "shap": "0.52.0"
+  },
+  "limitations": [
+    "Ranking is a historical association, not guaranteed conversion.",
+    "Probability calibration drifts with the overall conversion rate; recalibrate on recent outcomes before use.",
+    "Trained on one Portuguese bank's 2008-2009 campaigns."
+  ],
+  "derived_from": "lead-scorer-1.0.0",
+  "derived_from_sha256": "25b4d719ebc7648ad5698c17e14f5a980a2bed059ce7978b25235f96da73a670",
+  "explanation": "closed-form linear SHAP: coef * (x - mean of transformed development background); equals shap.LinearExplainer with an independent masker on the Phase 4 background",
+  "app_outputs": {
+    "historical_reference_priority": "band from the frozen validation-period cutoffs",
+    "historical_percentile": "share of validation-period (Apr - May 2009) reference leads at or below",
+    "batch_priority / batch_percentile": "same 20/30/50 rule applied within the uploaded batch",
+    "historical_calibrated_estimate": "secondary; Platt calibration fitted Apr - May 2009; drifted later"
+  },
+  "feature_names": [
+    "age",
+    "job",
+    "marital",
+    "education",
+    "default",
+    "housing",
+    "loan",
+    "contact",
+    "day_of_week",
+    "prior_contacts_current_campaign",
+    "previous",
+    "poutcome"
+  ],
+  "input_schema": {
+    "categories": {
+      "job": [
+        "admin.",
+        "blue-collar",
+        "entrepreneur",
+        "housemaid",
+        "management",
+        "retired",
+        "self-employed",
+        "services",
+        "student",
+        "technician",
+        "unemployed",
+        "unknown"
+      ],
+      "marital": [
+        "divorced",
+        "married",
+        "single",
+        "unknown"
+      ],
+      "education": [
+        "basic.4y",
+        "basic.6y",
+        "basic.9y",
+        "high.school",
+        "illiterate",
+        "professional.course",
+        "university.degree",
+        "unknown"
+      ],
+      "default": [
+        "no",
+        "unknown",
+        "yes"
+      ],
+      "housing": [
+        "no",
+        "unknown",
+        "yes"
+      ],
+      "loan": [
+        "no",
+        "unknown",
+        "yes"
+      ],
+      "contact": [
+        "cellular",
+        "telephone"
+      ],
+      "day_of_week": [
+        "fri",
+        "mon",
+        "thu",
+        "tue",
+        "wed"
+      ],
+      "poutcome": [
+        "failure",
+        "nonexistent",
+        "success"
+      ]
+    },
+    "numeric_limits": {
+      "age": [
+        17,
+        100
+      ],
+      "earlier_calls_this_campaign": [
+        0,
+        60
+      ],
+      "earlier_campaign_contacts": [
+        0,
+        10
+      ]
+    },
+    "training_range": {
+      "age": [
+        18,
+        95
+      ],
+      "earlier_calls_this_campaign": [
+        0,
+        55
+      ],
+      "earlier_campaign_contacts": [
+        0,
+        2
+      ]
+    },
+    "rules": [
+      "earlier_campaign_contacts == 0  <=>  previous_campaign_outcome == 'nonexistent' (holds for every row of the audited data)",
+      "earlier_calls_this_campaign = campaign - 1 (the source field counts the call being scored)"
+    ],
+    "never_inputs": [
+      "duration",
+      "y",
+      "pdays",
+      "month",
+      "emp.var.rate",
+      "cons.price.idx",
+      "cons.conf.idx",
+      "euribor3m",
+      "nr.employed"
+    ]
+  },
+  "explanation_base_value": -2.96640354395211
+}

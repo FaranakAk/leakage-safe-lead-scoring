@@ -1,0 +1,354 @@
+{
+  "status": "frozen",
+  "data_sha256": "74adfc578bf77a7ff4bb1ba4a9f8709d9e3c6907342959c2c8416847e0afb4d8",
+  "segments": {
+    "development": {
+      "first_row": 0,
+      "last_row": 27971,
+      "n_rows": 27972,
+      "first_period": "2008-05",
+      "last_period": "2009-03"
+    },
+    "validation": {
+      "first_row": 27972,
+      "last_row": 32948,
+      "n_rows": 4977,
+      "first_period": "2009-04",
+      "last_period": "2009-05"
+    },
+    "test": {
+      "first_row": 32949,
+      "last_row": 41187,
+      "n_rows": 8239,
+      "first_period": "2009-05",
+      "last_period": "2010-11"
+    }
+  },
+  "split_rule": "Test = final 20% of rows, unchanged since Phase 1. Validation starts at the month boundary closest to 70% of all rows (chronology only, no target or model information).",
+  "inner_folds": [
+    {
+      "fit_rows": [
+        0,
+        5593
+      ],
+      "eval_rows": [
+        5594,
+        11187
+      ]
+    },
+    {
+      "fit_rows": [
+        0,
+        11187
+      ],
+      "eval_rows": [
+        11188,
+        16782
+      ]
+    },
+    {
+      "fit_rows": [
+        0,
+        16782
+      ],
+      "eval_rows": [
+        16783,
+        22376
+      ]
+    },
+    {
+      "fit_rows": [
+        0,
+        22376
+      ],
+      "eval_rows": [
+        22377,
+        27971
+      ]
+    }
+  ],
+  "feature_sets": {
+    "primary": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "housing",
+      "loan",
+      "contact",
+      "day_of_week",
+      "prior_contacts_current_campaign",
+      "previous",
+      "poutcome"
+    ],
+    "month_sensitivity": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "housing",
+      "loan",
+      "contact",
+      "month",
+      "day_of_week",
+      "prior_contacts_current_campaign",
+      "previous",
+      "poutcome"
+    ],
+    "pdays_sensitivity": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "housing",
+      "loan",
+      "contact",
+      "day_of_week",
+      "prior_contacts_current_campaign",
+      "prior_contact_days_known",
+      "days_since_prior_contact",
+      "previous",
+      "poutcome"
+    ],
+    "extended": [
+      "age",
+      "job",
+      "marital",
+      "education",
+      "default",
+      "housing",
+      "loan",
+      "contact",
+      "day_of_week",
+      "prior_contacts_current_campaign",
+      "previous",
+      "poutcome",
+      "emp.var.rate",
+      "cons.price.idx",
+      "cons.conf.idx",
+      "euribor3m",
+      "nr.employed"
+    ]
+  },
+  "primary_feature_set": "primary",
+  "preprocessing": {
+    "feature_construction": "src.features.build_features: stateless, whitelists inputs; duration and y never pass",
+    "numeric": "median imputation + standardisation, fitted on training rows only",
+    "categorical": "one-hot; 'unknown' kept as a level; unseen levels ignored at inference",
+    "pdays_sensitivity_only": "days_since_prior_contact zero-imputed + standardised; indicator passed through"
+  },
+  "class_weighting": "not used (Phase 2 experiment: lowered PR-AUC and distorted probabilities)",
+  "resampling": "none (no SMOTE)",
+  "tuning": {
+    "logreg_candidates": [
+      {
+        "C": 0.003
+      },
+      {
+        "C": 0.01
+      },
+      {
+        "C": 0.03
+      },
+      {
+        "C": 0.1
+      },
+      {
+        "C": 0.3
+      },
+      {
+        "C": 1.0
+      }
+    ],
+    "xgb_search_space": {
+      "max_depth": [
+        2,
+        3
+      ],
+      "min_child_weight": [
+        5,
+        20,
+        50
+      ],
+      "learning_rate": [
+        0.03,
+        0.1
+      ],
+      "n_estimators": [
+        100,
+        200,
+        400
+      ],
+      "reg_lambda": [
+        1.0,
+        10.0
+      ],
+      "subsample": [
+        0.8
+      ],
+      "colsample_bytree": [
+        0.8
+      ]
+    },
+    "n_xgb_candidates_sampled": 20,
+    "defaults": {
+      "logreg": {
+        "C": 1.0
+      },
+      "xgboost": {
+        "colsample_bytree": 0.8,
+        "learning_rate": 0.1,
+        "max_depth": 3,
+        "min_child_weight": 20,
+        "n_estimators": 100,
+        "reg_lambda": 1.0,
+        "subsample": 0.8
+      }
+    },
+    "rule": "Use the best mean inner-CV PR-AUC candidate only if its paired per-fold gain over the default is >= 0.005 and >= 2 standard errors; otherwise the predeclared default.",
+    "results": {
+      "logreg": {
+        "informative": false,
+        "chosen_params": {
+          "C": 1.0
+        },
+        "best_params": {
+          "C": 0.003
+        },
+        "best_mean_pr_auc": 0.06313704837484689,
+        "default_mean_pr_auc": 0.06102052167681438,
+        "mean_gain_over_default": 0.0021165266980325143,
+        "gain_standard_error": 0.0043104949661198575,
+        "pr_auc_spread_across_candidates": 0.004539778260117769
+      },
+      "xgboost": {
+        "informative": false,
+        "chosen_params": {
+          "colsample_bytree": 0.8,
+          "learning_rate": 0.1,
+          "max_depth": 3,
+          "min_child_weight": 20,
+          "n_estimators": 100,
+          "reg_lambda": 1.0,
+          "subsample": 0.8
+        },
+        "best_params": {
+          "colsample_bytree": 0.8,
+          "learning_rate": 0.03,
+          "max_depth": 2,
+          "min_child_weight": 5,
+          "n_estimators": 100,
+          "reg_lambda": 1.0,
+          "subsample": 0.8
+        },
+        "best_mean_pr_auc": 0.06258668475703308,
+        "default_mean_pr_auc": 0.05984535248575974,
+        "mean_gain_over_default": 0.0027413322712733328,
+        "gain_standard_error": 0.003475348230803356,
+        "pr_auc_spread_across_candidates": 0.005158444343121432
+      }
+    },
+    "naive_baseline_by_fold": [
+      {
+        "fold": 0,
+        "n": 5594,
+        "base_rate": 0.039685377189846265,
+        "pr_auc": 0.039685377189846265
+      },
+      {
+        "fold": 1,
+        "n": 5595,
+        "base_rate": 0.06094727435210009,
+        "pr_auc": 0.06094727435210009
+      },
+      {
+        "fold": 2,
+        "n": 5594,
+        "base_rate": 0.05809796210225241,
+        "pr_auc": 0.05809796210225241
+      },
+      {
+        "fold": 3,
+        "n": 5595,
+        "base_rate": 0.0741733690795353,
+        "pr_auc": 0.0741733690795353
+      }
+    ]
+  },
+  "params": {
+    "logreg": {
+      "C": 1.0
+    },
+    "xgboost": {
+      "colsample_bytree": 0.8,
+      "learning_rate": 0.1,
+      "max_depth": 3,
+      "min_child_weight": 20,
+      "n_estimators": 100,
+      "reg_lambda": 1.0,
+      "subsample": 0.8
+    }
+  },
+  "primary_rule": "Eligible: validation ROC-AUC > 0.5 and PR-AUC above the naive baseline. XGBoost is primary only if its validation PR-AUC exceeds logistic regression's by >= 0.01, its top-20% lift is at least as high, and its PR-AUC is at least as high in every validation month (temporal stability). Otherwise logistic regression, if eligible.",
+  "primary_checks": {
+    "eligible": {
+      "logreg": true,
+      "xgboost": true
+    },
+    "xgboost_checks": {
+      "pr_auc_gain_at_least_min": true,
+      "top20_lift_at_least_logreg": true,
+      "pr_auc_at_least_logreg_every_month": false
+    },
+    "top20_lift": {
+      "logreg": 1.6463308669330907,
+      "xgboost": 1.6620852292960868
+    }
+  },
+  "primary_family": "logreg",
+  "primary_model": "primary__logreg",
+  "calibration": {
+    "method": "Platt: logistic regression on the model's log-odds",
+    "fitted_on": "validation",
+    "slope": 1.2584550448535217,
+    "intercept": 1.456414277004645,
+    "used": true
+  },
+  "model_files": {
+    "primary__naive": "artifacts/models/dev_primary__naive.joblib",
+    "primary__logreg": "artifacts/models/dev_primary__logreg.joblib",
+    "primary__xgboost": "artifacts/models/dev_primary__xgboost.joblib",
+    "month_sensitivity__logreg": "artifacts/models/dev_month_sensitivity__logreg.joblib",
+    "month_sensitivity__xgboost": "artifacts/models/dev_month_sensitivity__xgboost.joblib",
+    "pdays_sensitivity__logreg": "artifacts/models/dev_pdays_sensitivity__logreg.joblib",
+    "pdays_sensitivity__xgboost": "artifacts/models/dev_pdays_sensitivity__xgboost.joblib",
+    "extended__logreg": "artifacts/models/dev_extended__logreg.joblib",
+    "extended__xgboost": "artifacts/models/dev_extended__xgboost.joblib",
+    "primary_calibrated": "artifacts/models/dev_primary_calibrated.joblib"
+  },
+  "metrics_to_report": {
+    "ranking_and_probability": [
+      "PR-AUC (primary ranking metric), with bootstrap 95% interval",
+      "ROC-AUC, with bootstrap 95% interval",
+      "Brier score, uncalibrated and calibrated",
+      "reliability table / calibration plot"
+    ],
+    "business": [
+      "precision in top 10/20/30% of scored leads",
+      "share of conversions captured in top 10/20/30%",
+      "lift over the segment's own base rate",
+      "contacts per conversion"
+    ]
+  },
+  "priority_bands": "NOT DEFINED. High/Medium/Low bands belong to Phase 4 and are not part of this spec.",
+  "sensitivity_sets_role": "Reported for context only; never used to choose features, models or thresholds.",
+  "redesign_history": [
+    "v1 (archived in reports/history/v1_60_20_20/): 60/20/20 split, month in the primary set, CV-argmax tuning, class-weighting experiment. Inner CV on 2008-only data could not distinguish candidates; the selected XGBoost (depth 4, min_child_weight 1) ranked validation leads in reverse (ROC-AUC 0.438).",
+    "v1 observation, NOT blind selection: on the v1 validation period a shallow XGBoost (depth 2, min_child_weight 20) scored ROC-AUC 0.558. This motivated the conservative v2 search space and default; it was not used to pick a configuration.",
+    "v1 diagnostic: logistic regression's validation advantage came largely from month levels absent from training. v2 drops month from the primary set on generalisation grounds.",
+    "v2 (this spec): month-aligned ~70/10/20 split with the test segment unchanged, month as a sensitivity set, no class weighting, predeclared defaults when tuning is uninformative, predeclared primary rule."
+  ]
+}

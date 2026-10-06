@@ -1,0 +1,11 @@
+# Runtime for the Streamlit app (installed by Streamlit Community Cloud).
+# Pinned to the versions the deployment artifact was built and tested with; the
+# pickled scikit-learn pipeline must be loaded with the same scikit-learn version.
+# Python 3.12.
+streamlit==1.65.0
+scikit-learn==1.9.1
+numpy==2.5.3
+pandas==2.3.3
+scipy==1.18.1
+joblib==1.6.0
+altair==6.3.0

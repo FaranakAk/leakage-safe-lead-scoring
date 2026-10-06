@@ -1,0 +1,10 @@
+# Full reproducibility environment (data audit, training, evaluation, explanations, tests).
+# Python 3.12.
+-r requirements.txt
+xgboost==3.4.1
+shap==0.52.0
+matplotlib>=3.8
+pytest>=8
+nbformat>=5
+nbconvert>=7
+ipykernel>=6

@@ -1,0 +1,24 @@
+{
+  "explains": "log-odds ranking score of the frozen logistic regression (not the calibrated probability)",
+  "background": "1000 development-period rows, seed 7",
+  "explained_rows": "validation period, 4977 leads",
+  "base_value": -2.96640354395211,
+  "additivity_max_abs_error": 8.881784197001252e-16,
+  "interpretation": "Contributions are model associations: how much each field pushed this model's score up or down relative to an average development-period lead. They are not causal effects.",
+  "local_examples": {
+    "High": {
+      "row": 30846,
+      "selection_rule": "validation lead whose ranking score is closest to the median of the High band",
+      "priority": "High",
+      "ranking_score": -2.399314650223558,
+      "historical_percentile": 90.014064697609
+    },
+    "Low": {
+      "row": 31401,
+      "selection_rule": "validation lead whose ranking score is closest to the median of the Low band",
+      "priority": "Low",
+      "ranking_score": -2.964162704118198,
+      "historical_percentile": 24.994976893711073
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "source_url": "https://archive.ics.uci.edu/static/public/222/bank+marketing.zip",
+  "file": "bank-additional-full.csv",
+  "sha256": "74adfc578bf77a7ff4bb1ba4a9f8709d9e3c6907342959c2c8416847e0afb4d8",
+  "schema": {
+    "n_rows": 41188,
+    "n_columns": 21,
+    "columns_match_expected": true,
+    "missing_columns": [],
+    "unexpected_columns": [],
+    "n_nan_cells": 0,
+    "n_exact_duplicate_rows": 12
+  },
+  "ordering": {
+    "n_month_runs": 26,
+    "each_period_is_one_contiguous_run": true,
+    "first_period": "2008-05",
+    "last_period": "2010-11",
+    "consistent_with_documented_range": true
+  },
+  "class_balance": {
+    "n_yes": 4640,
+    "n_no": 36548,
+    "conversion_rate": 0.11265417111780131
+  },
+  "unknown_shares": {
+    "job": 0.008012042342429833,
+    "marital": 0.0019423132951345051,
+    "education": 0.042026803923472855,
+    "default": 0.20872584247839177,
+    "housing": 0.0240361270272895,
+    "loan": 0.0240361270272895,
+    "contact": 0.0,
+    "month": 0.0,
+    "day_of_week": 0.0,
+    "poutcome": 0.0
+  },
+  "sentinels": {
+    "campaign_min": 1,
+    "campaign_max": 56,
+    "share_pdays_sentinel": 0.9632174419733903,
+    "pdays_max_excluding_sentinel": 27,
+    "n_previous_gt_0_with_pdays_sentinel": 4110,
+    "poutcome_nonexistent_iff_previous_0": true,
+    "n_duration_0": 4,
+    "n_duration_0_converted": 0,
+    "n_default_yes": 3
+  },
+  "economic_unique_values": {
+    "emp.var.rate": 10,
+    "cons.price.idx": 26,
+    "cons.conf.idx": 26,
+    "euribor3m": 316,
+    "nr.employed": 11
+  }
+}

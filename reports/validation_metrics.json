@@ -1,0 +1,397 @@
+{
+  "drift": {
+    "unseen_category_levels_in_validation": {
+      "month": {
+        "apr": 2458
+      }
+    }
+  },
+  "models": {
+    "primary": {
+      "naive": {
+        "n": 4977,
+        "base_rate": 0.12758689973879847,
+        "mean_predicted": 0.052373802373802396,
+        "pr_auc": 0.12758689973879847,
+        "roc_auc": 0.5,
+        "brier": 0.11696549276907667,
+        "brier_at_segment_base_rate": 0.11130848275384025,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 498,
+            "expected_conversions": 63.538276069921636,
+            "precision": 0.12758689973879847,
+            "capture_rate": 0.10006027727546714,
+            "lift": 1.0,
+            "contacts_per_conversion": 7.837795275590552
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 995,
+            "expected_conversions": 126.94896524010449,
+            "precision": 0.12758689973879847,
+            "capture_rate": 0.19991963029937715,
+            "lift": 1.0,
+            "contacts_per_conversion": 7.837795275590551
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 1493,
+            "expected_conversions": 190.48724131002612,
+            "precision": 0.12758689973879847,
+            "capture_rate": 0.2999799075748443,
+            "lift": 1.0,
+            "contacts_per_conversion": 7.837795275590551
+          }
+        ],
+        "pr_auc_by_period": {
+          "2009-04": 0.17982099267697316,
+          "2009-05": 0.07661770543866614
+        }
+      },
+      "logreg": {
+        "n": 4977,
+        "base_rate": 0.12758689973879847,
+        "mean_predicted": 0.06377090850780011,
+        "pr_auc": 0.19986796036994275,
+        "roc_auc": 0.6269685946096903,
+        "brier": 0.11355640547588965,
+        "brier_at_segment_base_rate": 0.11130848275384025,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 498,
+            "expected_conversions": 134.0,
+            "precision": 0.26907630522088355,
+            "capture_rate": 0.2110236220472441,
+            "lift": 2.1089649938336024,
+            "contacts_per_conversion": 3.716417910447761
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 995,
+            "expected_conversions": 209.0,
+            "precision": 0.2100502512562814,
+            "capture_rate": 0.3291338582677165,
+            "lift": 1.6463308669330907,
+            "contacts_per_conversion": 4.760765550239235
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 1493,
+            "expected_conversions": 287.0,
+            "precision": 0.19223040857334225,
+            "capture_rate": 0.4519685039370079,
+            "lift": 1.5066625881409834,
+            "contacts_per_conversion": 5.2020905923344944
+          }
+        ],
+        "pr_auc_by_period": {
+          "2009-04": 0.26958964681270775,
+          "2009-05": 0.1205948698447431
+        }
+      },
+      "xgboost": {
+        "n": 4977,
+        "base_rate": 0.12758689973879847,
+        "mean_predicted": 0.0622840436609222,
+        "pr_auc": 0.21307766442078485,
+        "roc_auc": 0.6156060380752728,
+        "brier": 0.1136870062091636,
+        "brier_at_segment_base_rate": 0.11130848275384025,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 498,
+            "expected_conversions": 139.0,
+            "precision": 0.2791164658634538,
+            "capture_rate": 0.2188976377952756,
+            "lift": 2.1876577174841096,
+            "contacts_per_conversion": 3.58273381294964
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 995,
+            "expected_conversions": 211.0,
+            "precision": 0.21206030150753769,
+            "capture_rate": 0.33228346456692914,
+            "lift": 1.6620852292960868,
+            "contacts_per_conversion": 4.7156398104265405
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 1493,
+            "expected_conversions": 282.0,
+            "precision": 0.18888144675150703,
+            "capture_rate": 0.4440944881889764,
+            "lift": 1.48041411099567,
+            "contacts_per_conversion": 5.294326241134752
+          }
+        ],
+        "pr_auc_by_period": {
+          "2009-04": 0.2850924842310296,
+          "2009-05": 0.11141817257857652
+        }
+      }
+    },
+    "month_sensitivity": {
+      "logreg": {
+        "n": 4977,
+        "base_rate": 0.12758689973879847,
+        "mean_predicted": 0.07841597150098482,
+        "pr_auc": 0.2128318101696846,
+        "roc_auc": 0.6576719970114284,
+        "brier": 0.10998684932818585,
+        "brier_at_segment_base_rate": 0.11130848275384025,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 498,
+            "expected_conversions": 119.0,
+            "precision": 0.2389558232931727,
+            "capture_rate": 0.18740157480314962,
+            "lift": 1.8728868228820796,
+            "contacts_per_conversion": 4.184873949579832
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 995,
+            "expected_conversions": 225.0,
+            "precision": 0.22613065326633167,
+            "capture_rate": 0.3543307086614173,
+            "lift": 1.7723657658370595,
+            "contacts_per_conversion": 4.4222222222222225
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 1493,
+            "expected_conversions": 324.0,
+            "precision": 0.21701272605492297,
+            "capture_rate": 0.510236220472441,
+            "lift": 1.7009013190163018,
+            "contacts_per_conversion": 4.6080246913580245
+          }
+        ],
+        "pr_auc_by_period": {
+          "2009-04": 0.23857443655186686,
+          "2009-05": 0.09403477490182695
+        }
+      },
+      "xgboost": {
+        "n": 4977,
+        "base_rate": 0.12758689973879847,
+        "mean_predicted": 0.056245027669485206,
+        "pr_auc": 0.22232479327168692,
+        "roc_auc": 0.6571353960764117,
+        "brier": 0.11360993083398975,
+        "brier_at_segment_base_rate": 0.11130848275384025,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 498,
+            "expected_conversions": 142.0,
+            "precision": 0.285140562248996,
+            "capture_rate": 0.22362204724409449,
+            "lift": 2.2348733516744144,
+            "contacts_per_conversion": 3.507042253521127
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 995,
+            "expected_conversions": 243.0,
+            "precision": 0.2442211055276382,
+            "capture_rate": 0.3826771653543307,
+            "lift": 1.9141550271040242,
+            "contacts_per_conversion": 4.094650205761317
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 1493,
+            "expected_conversions": 315.0,
+            "precision": 0.21098459477561957,
+            "capture_rate": 0.49606299212598426,
+            "lift": 1.653654060154738,
+            "contacts_per_conversion": 4.73968253968254
+          }
+        ],
+        "pr_auc_by_period": {
+          "2009-04": 0.25388878577969154,
+          "2009-05": 0.08123043567419488
+        }
+      }
+    },
+    "pdays_sensitivity": {
+      "logreg": {
+        "n": 4977,
+        "base_rate": 0.12758689973879847,
+        "mean_predicted": 0.06608104289331353,
+        "pr_auc": 0.19724588551643507,
+        "roc_auc": 0.614191544228321,
+        "brier": 0.1145445901865761,
+        "brier_at_segment_base_rate": 0.11130848275384025,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 498,
+            "expected_conversions": 123.0,
+            "precision": 0.2469879518072289,
+            "capture_rate": 0.19370078740157481,
+            "lift": 1.9358410018024854,
+            "contacts_per_conversion": 4.048780487804878
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 995,
+            "expected_conversions": 201.0,
+            "precision": 0.2020100502512563,
+            "capture_rate": 0.3165354330708661,
+            "lift": 1.5833134174811063,
+            "contacts_per_conversion": 4.9502487562189055
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 1493,
+            "expected_conversions": 276.0,
+            "precision": 0.18486269256530474,
+            "capture_rate": 0.4346456692913386,
+            "lift": 1.448915938421294,
+            "contacts_per_conversion": 5.409420289855072
+          }
+        ],
+        "pr_auc_by_period": {
+          "2009-04": 0.25967286287138625,
+          "2009-05": 0.1344075852194213
+        }
+      },
+      "xgboost": {
+        "n": 4977,
+        "base_rate": 0.12758689973879847,
+        "mean_predicted": 0.06200512109022316,
+        "pr_auc": 0.20890617548308832,
+        "roc_auc": 0.6101038383559954,
+        "brier": 0.1138496290308572,
+        "brier_at_segment_base_rate": 0.11130848275384025,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 498,
+            "expected_conversions": 135.0,
+            "precision": 0.2710843373493976,
+            "capture_rate": 0.2125984251968504,
+            "lift": 2.1247035385637036,
+            "contacts_per_conversion": 3.688888888888889
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 995,
+            "expected_conversions": 207.0,
+            "precision": 0.20804020100502513,
+            "capture_rate": 0.32598425196850395,
+            "lift": 1.6305765045700946,
+            "contacts_per_conversion": 4.806763285024155
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 1493,
+            "expected_conversions": 265.0,
+            "precision": 0.17749497655726726,
+            "capture_rate": 0.41732283464566927,
+            "lift": 1.391169288701605,
+            "contacts_per_conversion": 5.633962264150943
+          }
+        ],
+        "pr_auc_by_period": {
+          "2009-04": 0.27982462018050724,
+          "2009-05": 0.11125055717805794
+        }
+      }
+    },
+    "extended": {
+      "logreg": {
+        "n": 4977,
+        "base_rate": 0.12758689973879847,
+        "mean_predicted": 0.2772535923624737,
+        "pr_auc": 0.19313101392561216,
+        "roc_auc": 0.6220831504767569,
+        "brier": 0.13241577644605357,
+        "brier_at_segment_base_rate": 0.11130848275384025,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 498,
+            "expected_conversions": 122.0,
+            "precision": 0.24497991967871485,
+            "capture_rate": 0.1921259842519685,
+            "lift": 1.920102457072384,
+            "contacts_per_conversion": 4.081967213114754
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 995,
+            "expected_conversions": 188.0,
+            "precision": 0.18894472361809045,
+            "capture_rate": 0.29606299212598425,
+            "lift": 1.4809100621216318,
+            "contacts_per_conversion": 5.292553191489362
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 1493,
+            "expected_conversions": 277.0,
+            "precision": 0.1855324849296718,
+            "capture_rate": 0.43622047244094486,
+            "lift": 1.4541656338503568,
+            "contacts_per_conversion": 5.389891696750903
+          }
+        ],
+        "pr_auc_by_period": {
+          "2009-04": 0.26346080338769035,
+          "2009-05": 0.1037686911946448
+        }
+      },
+      "xgboost": {
+        "n": 4977,
+        "base_rate": 0.12758689973879847,
+        "mean_predicted": 0.3819069105241824,
+        "pr_auc": 0.1662580406153873,
+        "roc_auc": 0.5834509660267593,
+        "brier": 0.17755174550460445,
+        "brier_at_segment_base_rate": 0.11130848275384025,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 498,
+            "expected_conversions": 97.0,
+            "precision": 0.19477911646586346,
+            "capture_rate": 0.15275590551181104,
+            "lift": 1.5266388388198464,
+            "contacts_per_conversion": 5.134020618556701
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 995,
+            "expected_conversions": 174.0,
+            "precision": 0.1748743718592965,
+            "capture_rate": 0.2740157480314961,
+            "lift": 1.3706295255806593,
+            "contacts_per_conversion": 5.718390804597701
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 1493,
+            "expected_conversions": 260.0,
+            "precision": 0.174146014735432,
+            "capture_rate": 0.4094488188976378,
+            "lift": 1.3649208115562916,
+            "contacts_per_conversion": 5.742307692307692
+          }
+        ],
+        "pr_auc_by_period": {
+          "2009-04": 0.2624378122642303,
+          "2009-05": 0.07933360826583526
+        }
+      }
+    }
+  }
+}

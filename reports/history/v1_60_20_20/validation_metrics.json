@@ -1,0 +1,371 @@
+{
+  "drift": {
+    "unseen_category_levels_in_validation": {
+      "month": {
+        "apr": 2458,
+        "dec": 10,
+        "mar": 282
+      }
+    }
+  },
+  "models": {
+    "primary__naive": {
+      "uncalibrated": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.04807381029459372,
+        "pr_auc": 0.11071992230180891,
+        "roc_auc": 0.5,
+        "brier": 0.10238555645691089,
+        "brier_at_segment_base_rate": 0.09846102110729031,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 824,
+            "expected_conversions": 91.23321597669054,
+            "precision": 0.11071992230180891,
+            "capture_rate": 0.10003642102707297,
+            "lift": 1.0,
+            "contacts_per_conversion": 9.031798245614034
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 1647,
+            "expected_conversions": 182.35571203107926,
+            "precision": 0.11071992230180891,
+            "capture_rate": 0.19995143863056936,
+            "lift": 1.0,
+            "contacts_per_conversion": 9.031798245614036
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 2471,
+            "expected_conversions": 273.5889280077698,
+            "precision": 0.11071992230180891,
+            "capture_rate": 0.29998785965764235,
+            "lift": 1.0,
+            "contacts_per_conversion": 9.031798245614034
+          }
+        ]
+      }
+    },
+    "primary__logreg": {
+      "uncalibrated": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.06803673900382999,
+        "pr_auc": 0.18509400984012958,
+        "roc_auc": 0.6277869588647387,
+        "brier": 0.09842298981580756,
+        "brier_at_segment_base_rate": 0.09846102110729031,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 824,
+            "expected_conversions": 187.0,
+            "precision": 0.22694174757281554,
+            "capture_rate": 0.2050438596491228,
+            "lift": 2.0496920775847385,
+            "contacts_per_conversion": 4.406417112299465
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 1647,
+            "expected_conversions": 337.0,
+            "precision": 0.20461445051608987,
+            "capture_rate": 0.36951754385964913,
+            "lift": 1.8480364351985004,
+            "contacts_per_conversion": 4.887240356083086
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 2471,
+            "expected_conversions": 449.0,
+            "precision": 0.18170781060299473,
+            "capture_rate": 0.4923245614035088,
+            "lift": 1.6411482850184953,
+            "contacts_per_conversion": 5.503340757238307
+          }
+        ]
+      },
+      "calibrated_in_sample": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.11072249166817184,
+        "pr_auc": 0.18509400984012958,
+        "roc_auc": 0.6277869588647387,
+        "brier": 0.09657855747728981,
+        "brier_at_segment_base_rate": 0.09846102110729031
+      },
+      "platt_slope_intercept": [
+        0.7795541589154094,
+        -0.017035483088017587
+      ]
+    },
+    "primary__xgboost": {
+      "uncalibrated": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.06853296865189136,
+        "pr_auc": 0.09008417813135089,
+        "roc_auc": 0.43792714508113284,
+        "brier": 0.10560547903914497,
+        "brier_at_segment_base_rate": 0.09846102110729031,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 824,
+            "expected_conversions": 35.0,
+            "precision": 0.04247572815533981,
+            "capture_rate": 0.03837719298245614,
+            "lift": 0.38363220703457673,
+            "contacts_per_conversion": 23.542857142857144
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 1647,
+            "expected_conversions": 83.0,
+            "precision": 0.050394656952034,
+            "capture_rate": 0.09100877192982457,
+            "lift": 0.45515437424770183,
+            "contacts_per_conversion": 19.843373493975903
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 2471,
+            "expected_conversions": 156.0,
+            "precision": 0.06313233508700931,
+            "capture_rate": 0.17105263157894737,
+            "lift": 0.5701985132803681,
+            "contacts_per_conversion": 15.83974358974359
+          }
+        ]
+      },
+      "calibrated_in_sample": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.1107359308665557,
+        "pr_auc": 0.12029150360077774,
+        "roc_auc": 0.5620728549188672,
+        "brier": 0.09798531339606927,
+        "brier_at_segment_base_rate": 0.09846102110729031
+      },
+      "platt_slope_intercept": [
+        -0.44340484428867666,
+        -3.3492323886470747
+      ]
+    },
+    "pdays_sensitivity__logreg": {
+      "uncalibrated": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.07063685397640437,
+        "pr_auc": 0.19370262663869867,
+        "roc_auc": 0.6438336776240943,
+        "brier": 0.09818932431404878,
+        "brier_at_segment_base_rate": 0.09846102110729031,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 824,
+            "expected_conversions": 198.0,
+            "precision": 0.24029126213592233,
+            "capture_rate": 0.21710526315789475,
+            "lift": 2.1702621997956055,
+            "contacts_per_conversion": 4.161616161616162
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 1647,
+            "expected_conversions": 341.0,
+            "precision": 0.20704310868245293,
+            "capture_rate": 0.37390350877192985,
+            "lift": 1.8699715857646544,
+            "contacts_per_conversion": 4.829912023460411
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 2471,
+            "expected_conversions": 460.0,
+            "precision": 0.18615944961554026,
+            "capture_rate": 0.5043859649122807,
+            "lift": 1.681354590442111,
+            "contacts_per_conversion": 5.371739130434783
+          }
+        ]
+      },
+      "calibrated_in_sample": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.11072771387877611,
+        "pr_auc": 0.19370262663869867,
+        "roc_auc": 0.6438336776240943,
+        "brier": 0.09625482234304089,
+        "brier_at_segment_base_rate": 0.09846102110729031
+      },
+      "platt_slope_intercept": [
+        0.6862412670179563,
+        -0.26830083554675277
+      ]
+    },
+    "pdays_sensitivity__xgboost": {
+      "uncalibrated": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.07165822244793243,
+        "pr_auc": 0.0895038317640276,
+        "roc_auc": 0.43533051913059095,
+        "brier": 0.1063808387076866,
+        "brier_at_segment_base_rate": 0.09846102110729031,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 824,
+            "expected_conversions": 36.0,
+            "precision": 0.043689320388349516,
+            "capture_rate": 0.039473684210526314,
+            "lift": 0.39459312723556467,
+            "contacts_per_conversion": 22.88888888888889
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 1647,
+            "expected_conversions": 84.0,
+            "precision": 0.051001821493624776,
+            "capture_rate": 0.09210526315789473,
+            "lift": 0.46063816188924045,
+            "contacts_per_conversion": 19.607142857142858
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 2471,
+            "expected_conversions": 149.0,
+            "precision": 0.060299473897207606,
+            "capture_rate": 0.16337719298245615,
+            "lift": 0.544612682556249,
+            "contacts_per_conversion": 16.583892617449663
+          }
+        ]
+      },
+      "calibrated_in_sample": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.11070578385641686,
+        "pr_auc": 0.11973797155865618,
+        "roc_auc": 0.564669480869409,
+        "brier": 0.09794956793856696,
+        "brier_at_segment_base_rate": 0.09846102110729031
+      },
+      "platt_slope_intercept": [
+        -0.43045090720064605,
+        -3.3064566821269517
+      ]
+    },
+    "extended__logreg": {
+      "uncalibrated": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.015016858963144133,
+        "pr_auc": 0.09525608583857473,
+        "roc_auc": 0.4694982336387043,
+        "brier": 0.10987803672849704,
+        "brier_at_segment_base_rate": 0.09846102110729031,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 824,
+            "expected_conversions": 41.0,
+            "precision": 0.04975728155339806,
+            "capture_rate": 0.044956140350877194,
+            "lift": 0.44939772824050417,
+            "contacts_per_conversion": 20.097560975609756
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 1647,
+            "expected_conversions": 85.0,
+            "precision": 0.05160898603521554,
+            "capture_rate": 0.09320175438596491,
+            "lift": 0.46612194953077896,
+            "contacts_per_conversion": 19.376470588235293
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 2471,
+            "expected_conversions": 136.0,
+            "precision": 0.05503844597329017,
+            "capture_rate": 0.14912280701754385,
+            "lift": 0.497096139782885,
+            "contacts_per_conversion": 18.169117647058822
+          }
+        ]
+      },
+      "calibrated_in_sample": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.11073146148491182,
+        "pr_auc": 0.10895568575497919,
+        "roc_auc": 0.5305017663612956,
+        "brier": 0.09729748091575516,
+        "brier_at_segment_base_rate": 0.09846102110729031
+      },
+      "platt_slope_intercept": [
+        -0.10593859282824769,
+        -3.052154761513117
+      ]
+    },
+    "extended__xgboost": {
+      "uncalibrated": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.05044697272558843,
+        "pr_auc": 0.10454690747833367,
+        "roc_auc": 0.47921980719717383,
+        "brier": 0.10285261676753919,
+        "brier_at_segment_base_rate": 0.09846102110729031,
+        "top_k": [
+          {
+            "top_fraction": 0.1,
+            "n_contacted": 824,
+            "expected_conversions": 83.0,
+            "precision": 0.10072815533980582,
+            "capture_rate": 0.09100877192982457,
+            "lift": 0.9097563766819963,
+            "contacts_per_conversion": 9.927710843373495
+          },
+          {
+            "top_fraction": 0.2,
+            "n_contacted": 1647,
+            "expected_conversions": 144.0,
+            "precision": 0.08743169398907104,
+            "capture_rate": 0.15789473684210525,
+            "lift": 0.789665420381555,
+            "contacts_per_conversion": 11.4375
+          },
+          {
+            "top_fraction": 0.3,
+            "n_contacted": 2471,
+            "expected_conversions": 247.0,
+            "precision": 0.09995953055443141,
+            "capture_rate": 0.2708333333333333,
+            "lift": 0.9028143126939161,
+            "contacts_per_conversion": 10.004048582995951
+          }
+        ]
+      },
+      "calibrated_in_sample": {
+        "n": 8237,
+        "base_rate": 0.11071992230180891,
+        "mean_predicted": 0.11072169060670185,
+        "pr_auc": 0.11538378636973104,
+        "roc_auc": 0.5207801928028262,
+        "brier": 0.09841743604233634,
+        "brier_at_segment_base_rate": 0.09846102110729031
+      },
+      "platt_slope_intercept": [
+        -0.1647482383787533,
+        -2.581853184201312
+      ]
+    }
+  }
+}

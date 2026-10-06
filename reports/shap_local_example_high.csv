@@ -1,0 +1,13 @@
+feature,value,description,contribution,sentence
+contact,cellular,Contact channel: cellular,0.2585191161726385,Contact channel: cellular pushed the model score higher (+0.26 on the log-odds scale) relative to an average development-period lead.
+job,management,Job type: management,0.14420830367043633,Job type: management pushed the model score higher (+0.14 on the log-odds scale) relative to an average development-period lead.
+prior_contacts_current_campaign,0,Earlier calls in this campaign: 0,0.056861303205911,Earlier calls in this campaign: 0 pushed the model score higher (+0.06 on the log-odds scale) relative to an average development-period lead.
+default,no,Credit in default: no,0.0467713019741801,Credit in default: no pushed the model score higher (+0.05 on the log-odds scale) relative to an average development-period lead.
+age,32,Age: 32,0.04176428135233834,Age: 32 pushed the model score higher (+0.04 on the log-odds scale) relative to an average development-period lead.
+day_of_week,tue,Call weekday: tue,-0.04078591196854344,Call weekday: tue pushed the model score lower (-0.04 on the log-odds scale) relative to an average development-period lead.
+education,university.degree,Education: university.degree,0.027915799675700792,Education: university.degree pushed the model score higher (+0.03 on the log-odds scale) relative to an average development-period lead.
+marital,divorced,Marital status: divorced,0.02756705078170991,Marital status: divorced pushed the model score higher (+0.03 on the log-odds scale) relative to an average development-period lead.
+housing,yes,Housing loan: yes,-0.011506997790898948,Housing loan: yes pushed the model score lower (-0.01 on the log-odds scale) relative to an average development-period lead.
+loan,no,Personal loan: no,0.008784779282106886,Personal loan: no pushed the model score higher (+0.01 on the log-odds scale) relative to an average development-period lead.
+previous,0,Contacts in earlier campaigns: 0,0.0037346831976544396,Contacts in earlier campaigns: 0 pushed the model score higher (+0.00 on the log-odds scale) relative to an average development-period lead.
+poutcome,nonexistent,Earlier campaign outcome: nonexistent,0.0032551841753180473,Earlier campaign outcome: nonexistent pushed the model score higher (+0.00 on the log-odds scale) relative to an average development-period lead.

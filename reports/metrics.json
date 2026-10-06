@@ -1,0 +1,193 @@
+{
+  "note": "ONE-TIME scoring of the untouched final 20% with the frozen spec. Not to be regenerated.",
+  "frozen_spec_sha256": "7abcba16afd082b74115fb8a42cd7859a06d36cda74a18c7133749318f098215",
+  "primary_model": "primary__logreg",
+  "comparison_model": "primary__xgboost",
+  "test_segment": {
+    "first_row": 32949,
+    "last_row": 41187,
+    "n_rows": 8239,
+    "first_period": "2009-05",
+    "last_period": "2010-11"
+  },
+  "base_rate": 0.30828984100012136,
+  "n": 8239,
+  "models": {
+    "naive": {
+      "n": 8239,
+      "base_rate": 0.30828984100012136,
+      "mean_predicted": 0.052373802373802396,
+      "pr_auc": 0.30828984100012136,
+      "roc_auc": 0.5,
+      "brier": 0.2787402337624289,
+      "brier_at_segment_base_rate": 0.21324721493624124,
+      "top_k": [
+        {
+          "top_fraction": 0.1,
+          "n_contacted": 824,
+          "expected_conversions": 254.0308289841,
+          "precision": 0.30828984100012136,
+          "capture_rate": 0.10001213739531496,
+          "lift": 1.0,
+          "contacts_per_conversion": 3.243700787401575
+        },
+        {
+          "top_fraction": 0.2,
+          "n_contacted": 1648,
+          "expected_conversions": 508.0616579682,
+          "precision": 0.30828984100012136,
+          "capture_rate": 0.20002427479062992,
+          "lift": 1.0,
+          "contacts_per_conversion": 3.243700787401575
+        },
+        {
+          "top_fraction": 0.3,
+          "n_contacted": 2472,
+          "expected_conversions": 762.0924869523,
+          "precision": 0.30828984100012136,
+          "capture_rate": 0.30003641218594485,
+          "lift": 1.0,
+          "contacts_per_conversion": 3.243700787401575
+        }
+      ]
+    },
+    "logreg_primary": {
+      "n": 8239,
+      "base_rate": 0.30828984100012136,
+      "mean_predicted": 0.07254940776782218,
+      "pr_auc": 0.4588012147000505,
+      "roc_auc": 0.6446913604127261,
+      "brier": 0.2620338149549304,
+      "brier_at_segment_base_rate": 0.21324721493624124,
+      "top_k": [
+        {
+          "top_fraction": 0.1,
+          "n_contacted": 824,
+          "expected_conversions": 456.0,
+          "precision": 0.5533980582524272,
+          "capture_rate": 0.1795275590551181,
+          "lift": 1.7950577172999007,
+          "contacts_per_conversion": 1.8070175438596492
+        },
+        {
+          "top_fraction": 0.2,
+          "n_contacted": 1648,
+          "expected_conversions": 896.0,
+          "precision": 0.5436893203883495,
+          "capture_rate": 0.352755905511811,
+          "lift": 1.7635654766455164,
+          "contacts_per_conversion": 1.8392857142857142
+        },
+        {
+          "top_fraction": 0.3,
+          "n_contacted": 2472,
+          "expected_conversions": 1166.0,
+          "precision": 0.4716828478964401,
+          "capture_rate": 0.4590551181102362,
+          "lift": 1.5299980251255,
+          "contacts_per_conversion": 2.1200686106346485
+        }
+      ]
+    },
+    "xgboost_comparison": {
+      "n": 8239,
+      "base_rate": 0.30828984100012136,
+      "mean_predicted": 0.07012741690828704,
+      "pr_auc": 0.3909402195455485,
+      "roc_auc": 0.5878996246060575,
+      "brier": 0.2667795676958305,
+      "brier_at_segment_base_rate": 0.21324721493624124,
+      "top_k": [
+        {
+          "top_fraction": 0.1,
+          "n_contacted": 824,
+          "expected_conversions": 398.0,
+          "precision": 0.4830097087378641,
+          "capture_rate": 0.15669291338582678,
+          "lift": 1.5667389725556151,
+          "contacts_per_conversion": 2.07035175879397
+        },
+        {
+          "top_fraction": 0.2,
+          "n_contacted": 1648,
+          "expected_conversions": 695.0,
+          "precision": 0.4217233009708738,
+          "capture_rate": 0.2736220472440945,
+          "lift": 1.3679442034248148,
+          "contacts_per_conversion": 2.371223021582734
+        },
+        {
+          "top_fraction": 0.3,
+          "n_contacted": 2472,
+          "expected_conversions": 953.0,
+          "precision": 0.3855177993527508,
+          "capture_rate": 0.37519685039370076,
+          "lift": 1.2505043893178402,
+          "contacts_per_conversion": 2.5939139559286466
+        }
+      ]
+    }
+  },
+  "primary_calibration": {
+    "brier_before": 0.2620338149549304,
+    "brier_after": 0.22765534598115345,
+    "brier_at_segment_base_rate": 0.21324721493624124,
+    "mean_predicted_before": 0.07254940776782218,
+    "mean_predicted_after": 0.14737856234567745,
+    "actual_rate": 0.30828984100012136,
+    "ranking_unchanged_by_calibration": true
+  },
+  "bootstrap": {
+    "logreg_primary": {
+      "pr_auc": [
+        0.43954875107800334,
+        0.47968400242545317
+      ],
+      "roc_auc": [
+        0.6316369877432663,
+        0.6582137355605538
+      ]
+    },
+    "xgboost_comparison": {
+      "pr_auc": [
+        0.3744258886562903,
+        0.4102027823248212
+      ],
+      "roc_auc": [
+        0.5750535151399104,
+        0.6012512782235624
+      ]
+    },
+    "differences": {
+      "logreg_primary - xgboost_comparison": {
+        "pr_auc": [
+          0.05082378423910387,
+          0.08456175114615162
+        ],
+        "roc_auc": [
+          0.045038808693136416,
+          0.06823631352915986
+        ]
+      }
+    },
+    "settings": {
+      "repetitions": 2000,
+      "seed": 20261006,
+      "level": 0.95,
+      "caveat": "Nonparametric row bootstrap (rows resampled with replacement, same resamples for every model). Intervals describe row-level sampling uncertainty under an independence approximation. They do not capture temporal dependence, distribution drift, or repeated clients (no client ID is available)."
+    }
+  },
+  "drift": {
+    "unseen_category_levels_in_test": {
+      "month": {
+        "apr": 174,
+        "sep": 570
+      }
+    }
+  },
+  "sensitivity_sets": "validation-only; not scored on test",
+  "limitations": [
+    "May 2009 is split between validation (rows 30,430-32,948) and test (from row 32,949). Segments are row-wise chronological and non-overlapping but not fully month-disjoint.",
+    "Models are fitted on May 2008 - March 2009 only; the test segment (May 2009 - November 2010) has a much higher conversion rate and far more prior-campaign history."
+  ]
+}
