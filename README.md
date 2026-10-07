@@ -6,7 +6,7 @@ This project builds and deploys a lead-ranking model for a bank's term-deposit t
 historical data. The model is designed to be realistic at the moment a decision is made. It was tested forward in
 time on a later period it had never seen, and it is delivered as a small web app that ranks leads for outreach.
 
-> **Live demo:** _[Streamlit link — add after deployment]_ · **Data:** UCI Bank Marketing (CC BY 4.0) ·
+> **Live demo:** https://leakage-safe-lead-scoring.streamlit.app/ · **Data:** UCI Bank Marketing (CC BY 4.0) ·
 > **Status:** portfolio demonstration on public 2008–2010 data, not a production banking system.
 
 ## Results at a glance
