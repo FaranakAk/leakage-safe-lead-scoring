@@ -233,7 +233,7 @@ XGBoost or SHAP to run.
 |---|---|
 | ![Single-lead scoring](reports/figures/app/app_single_lead_high.png) | ![Batch scoring](reports/figures/app/app_batch_scoring.png) |
 
-_Screenshots are from a local run; replace with screenshots of the deployed app._
+
 
 ## Limitations
 
